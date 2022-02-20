@@ -22,6 +22,9 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   final TextEditingController _nicknameController = TextEditingController();
+  final TextEditingController _msgController = TextEditingController();
+  final ScrollController _controller = ScrollController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,6 +75,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 children: [
                   Expanded(
                       child: ListView.builder(
+                          controller: _controller,
                           itemCount: data.messages.length,
                           itemBuilder: ((context, index) => ChatTile(
                                 message: data.messages[index],
@@ -81,12 +85,40 @@ class _ChatScreenState extends State<ChatScreen> {
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 20),
                       child: ListTile(
-                        title: const TextField(
-                          decoration: InputDecoration(
+                        title: TextField(
+                          controller: _msgController,
+                          decoration: const InputDecoration(
                             hintText: "Сообщение",
                           ),
                         ),
-                        trailing: IconButton(splashRadius: 25, icon: const Icon(Icons.send), onPressed: () {}),
+                        leading: IconButton(
+                          icon: Icon(Icons.share_location_outlined),
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: ((context) => AlertDialog(
+                                      content: const Text("Вы уверены что хотите поделиться геолокацией?"),
+                                      actions: [
+                                        ElevatedButton(
+                                            onPressed: () => Navigator.pop(context), child: const Text("Нет")),
+                                        ElevatedButton(onPressed: () {}, child: const Text("Да")),
+                                      ],
+                                    )));
+                          },
+                        ),
+                        trailing: IconButton(
+                            splashRadius: 25,
+                            icon: const Icon(Icons.send),
+                            onPressed: () {
+                              context.read<ChatBloc>().add(
+                                  ChatEvent.send(nickname: _nicknameController.text, message: _msgController.text));
+                              _msgController.clear();
+                              _controller.animateTo(
+                                _controller.position.maxScrollExtent,
+                                duration: const Duration(seconds: 1),
+                                curve: Curves.fastOutSlowIn,
+                              );
+                            }),
                       ),
                     ),
                   ),

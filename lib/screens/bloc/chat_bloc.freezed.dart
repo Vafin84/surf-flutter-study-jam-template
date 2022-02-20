@@ -25,6 +25,13 @@ class _$ChatEventTearOff {
   _RefreshChatEvent refresh() {
     return const _RefreshChatEvent();
   }
+
+  _SendChatEvent send({required String nickname, required String message}) {
+    return _SendChatEvent(
+      nickname: nickname,
+      message: message,
+    );
+  }
 }
 
 /// @nodoc
@@ -36,18 +43,21 @@ mixin _$ChatEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() refresh,
+    required TResult Function(String nickname, String message) send,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? refresh,
+    TResult Function(String nickname, String message)? send,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? refresh,
+    TResult Function(String nickname, String message)? send,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,18 +65,21 @@ mixin _$ChatEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialChatEvent value) initial,
     required TResult Function(_RefreshChatEvent value) refresh,
+    required TResult Function(_SendChatEvent value) send,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitialChatEvent value)? initial,
     TResult Function(_RefreshChatEvent value)? refresh,
+    TResult Function(_SendChatEvent value)? send,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialChatEvent value)? initial,
     TResult Function(_RefreshChatEvent value)? refresh,
+    TResult Function(_SendChatEvent value)? send,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -130,6 +143,7 @@ class _$_InitialChatEvent implements _InitialChatEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() refresh,
+    required TResult Function(String nickname, String message) send,
   }) {
     return initial();
   }
@@ -139,6 +153,7 @@ class _$_InitialChatEvent implements _InitialChatEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? refresh,
+    TResult Function(String nickname, String message)? send,
   }) {
     return initial?.call();
   }
@@ -148,6 +163,7 @@ class _$_InitialChatEvent implements _InitialChatEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? refresh,
+    TResult Function(String nickname, String message)? send,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -161,6 +177,7 @@ class _$_InitialChatEvent implements _InitialChatEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialChatEvent value) initial,
     required TResult Function(_RefreshChatEvent value) refresh,
+    required TResult Function(_SendChatEvent value) send,
   }) {
     return initial(this);
   }
@@ -170,6 +187,7 @@ class _$_InitialChatEvent implements _InitialChatEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitialChatEvent value)? initial,
     TResult Function(_RefreshChatEvent value)? refresh,
+    TResult Function(_SendChatEvent value)? send,
   }) {
     return initial?.call(this);
   }
@@ -179,6 +197,7 @@ class _$_InitialChatEvent implements _InitialChatEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialChatEvent value)? initial,
     TResult Function(_RefreshChatEvent value)? refresh,
+    TResult Function(_SendChatEvent value)? send,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -235,6 +254,7 @@ class _$_RefreshChatEvent implements _RefreshChatEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() refresh,
+    required TResult Function(String nickname, String message) send,
   }) {
     return refresh();
   }
@@ -244,6 +264,7 @@ class _$_RefreshChatEvent implements _RefreshChatEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? refresh,
+    TResult Function(String nickname, String message)? send,
   }) {
     return refresh?.call();
   }
@@ -253,6 +274,7 @@ class _$_RefreshChatEvent implements _RefreshChatEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? refresh,
+    TResult Function(String nickname, String message)? send,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -266,6 +288,7 @@ class _$_RefreshChatEvent implements _RefreshChatEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialChatEvent value) initial,
     required TResult Function(_RefreshChatEvent value) refresh,
+    required TResult Function(_SendChatEvent value) send,
   }) {
     return refresh(this);
   }
@@ -275,6 +298,7 @@ class _$_RefreshChatEvent implements _RefreshChatEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitialChatEvent value)? initial,
     TResult Function(_RefreshChatEvent value)? refresh,
+    TResult Function(_SendChatEvent value)? send,
   }) {
     return refresh?.call(this);
   }
@@ -284,6 +308,7 @@ class _$_RefreshChatEvent implements _RefreshChatEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialChatEvent value)? initial,
     TResult Function(_RefreshChatEvent value)? refresh,
+    TResult Function(_SendChatEvent value)? send,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -295,6 +320,157 @@ class _$_RefreshChatEvent implements _RefreshChatEvent {
 
 abstract class _RefreshChatEvent implements ChatEvent {
   const factory _RefreshChatEvent() = _$_RefreshChatEvent;
+}
+
+/// @nodoc
+abstract class _$SendChatEventCopyWith<$Res> {
+  factory _$SendChatEventCopyWith(
+          _SendChatEvent value, $Res Function(_SendChatEvent) then) =
+      __$SendChatEventCopyWithImpl<$Res>;
+  $Res call({String nickname, String message});
+}
+
+/// @nodoc
+class __$SendChatEventCopyWithImpl<$Res> extends _$ChatEventCopyWithImpl<$Res>
+    implements _$SendChatEventCopyWith<$Res> {
+  __$SendChatEventCopyWithImpl(
+      _SendChatEvent _value, $Res Function(_SendChatEvent) _then)
+      : super(_value, (v) => _then(v as _SendChatEvent));
+
+  @override
+  _SendChatEvent get _value => super._value as _SendChatEvent;
+
+  @override
+  $Res call({
+    Object? nickname = freezed,
+    Object? message = freezed,
+  }) {
+    return _then(_SendChatEvent(
+      nickname: nickname == freezed
+          ? _value.nickname
+          : nickname // ignore: cast_nullable_to_non_nullable
+              as String,
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SendChatEvent implements _SendChatEvent {
+  const _$_SendChatEvent({required this.nickname, required this.message});
+
+  @override
+  final String nickname;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'ChatEvent.send(nickname: $nickname, message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _SendChatEvent &&
+            const DeepCollectionEquality().equals(other.nickname, nickname) &&
+            const DeepCollectionEquality().equals(other.message, message));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(nickname),
+      const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  _$SendChatEventCopyWith<_SendChatEvent> get copyWith =>
+      __$SendChatEventCopyWithImpl<_SendChatEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() refresh,
+    required TResult Function(String nickname, String message) send,
+  }) {
+    return send(nickname, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? refresh,
+    TResult Function(String nickname, String message)? send,
+  }) {
+    return send?.call(nickname, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? refresh,
+    TResult Function(String nickname, String message)? send,
+    required TResult orElse(),
+  }) {
+    if (send != null) {
+      return send(nickname, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialChatEvent value) initial,
+    required TResult Function(_RefreshChatEvent value) refresh,
+    required TResult Function(_SendChatEvent value) send,
+  }) {
+    return send(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_InitialChatEvent value)? initial,
+    TResult Function(_RefreshChatEvent value)? refresh,
+    TResult Function(_SendChatEvent value)? send,
+  }) {
+    return send?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialChatEvent value)? initial,
+    TResult Function(_RefreshChatEvent value)? refresh,
+    TResult Function(_SendChatEvent value)? send,
+    required TResult orElse(),
+  }) {
+    if (send != null) {
+      return send(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SendChatEvent implements ChatEvent {
+  const factory _SendChatEvent(
+      {required String nickname, required String message}) = _$_SendChatEvent;
+
+  String get nickname;
+  String get message;
+  @JsonKey(ignore: true)
+  _$SendChatEventCopyWith<_SendChatEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

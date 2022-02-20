@@ -8,16 +8,20 @@ part 'chat_bloc.freezed.dart';
 
 class ChatBloc extends Bloc<ChatEvent, ChatState> {
   final ChatRepository chatRepository;
-  ChatBloc({required this.chatRepository}) : super(const _InitialChatState()) {
+  ChatBloc({required this.chatRepository}) : super(const ChatState.initial()) {
     on<_InitialChatEvent>((event, emit) async {
       final messages = await chatRepository.messages;
-
-      print(messages[0].author.name);
-      emit(const ChatState.loading());
       emit(ChatState.data(messages: messages));
     });
 
     on<_RefreshChatEvent>((event, emit) async {
+      final messages = await chatRepository.messages;
+      emit(const ChatState.loading());
+      emit(ChatState.data(messages: messages));
+    });
+
+    on<_SendChatEvent>((event, emit) async {
+      await chatRepository.sendMessage(event.nickname, event.message);
       final messages = await chatRepository.messages;
       emit(const ChatState.loading());
       emit(ChatState.data(messages: messages));
