@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:surf_practice_chat_flutter/data/chat/models/geolocation.dart';
 
 import 'package:surf_practice_chat_flutter/data/chat/repository/repository.dart';
 import 'package:surf_practice_chat_flutter/screens/bloc/chat_bloc.dart';
@@ -92,7 +93,7 @@ class _ChatScreenState extends State<ChatScreen> {
                           ),
                         ),
                         leading: IconButton(
-                          icon: Icon(Icons.share_location_outlined),
+                          icon: const Icon(Icons.share_location_outlined),
                           onPressed: () {
                             showDialog(
                                 context: context,
@@ -101,7 +102,14 @@ class _ChatScreenState extends State<ChatScreen> {
                                       actions: [
                                         ElevatedButton(
                                             onPressed: () => Navigator.pop(context), child: const Text("Нет")),
-                                        ElevatedButton(onPressed: () {}, child: const Text("Да")),
+                                        ElevatedButton(
+                                            onPressed: () {
+                                              context.read<ChatBloc>().add(ChatEvent.shareGeo(
+                                                  nickname: _nicknameController.text,
+                                                  location:
+                                                      ChatGeolocationDto(latitude: 52.383299, longitude: 55.723641)));
+                                            },
+                                            child: const Text("Да")),
                                       ],
                                     )));
                           },

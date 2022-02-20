@@ -26,6 +26,14 @@ class _$ChatEventTearOff {
     return const _RefreshChatEvent();
   }
 
+  _ShareGeoChatEvent shareGeo(
+      {required String nickname, required ChatGeolocationDto location}) {
+    return _ShareGeoChatEvent(
+      nickname: nickname,
+      location: location,
+    );
+  }
+
   _SendChatEvent send({required String nickname, required String message}) {
     return _SendChatEvent(
       nickname: nickname,
@@ -43,6 +51,8 @@ mixin _$ChatEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() refresh,
+    required TResult Function(String nickname, ChatGeolocationDto location)
+        shareGeo,
     required TResult Function(String nickname, String message) send,
   }) =>
       throw _privateConstructorUsedError;
@@ -50,6 +60,7 @@ mixin _$ChatEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? refresh,
+    TResult Function(String nickname, ChatGeolocationDto location)? shareGeo,
     TResult Function(String nickname, String message)? send,
   }) =>
       throw _privateConstructorUsedError;
@@ -57,6 +68,7 @@ mixin _$ChatEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? refresh,
+    TResult Function(String nickname, ChatGeolocationDto location)? shareGeo,
     TResult Function(String nickname, String message)? send,
     required TResult orElse(),
   }) =>
@@ -65,6 +77,7 @@ mixin _$ChatEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialChatEvent value) initial,
     required TResult Function(_RefreshChatEvent value) refresh,
+    required TResult Function(_ShareGeoChatEvent value) shareGeo,
     required TResult Function(_SendChatEvent value) send,
   }) =>
       throw _privateConstructorUsedError;
@@ -72,6 +85,7 @@ mixin _$ChatEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitialChatEvent value)? initial,
     TResult Function(_RefreshChatEvent value)? refresh,
+    TResult Function(_ShareGeoChatEvent value)? shareGeo,
     TResult Function(_SendChatEvent value)? send,
   }) =>
       throw _privateConstructorUsedError;
@@ -79,6 +93,7 @@ mixin _$ChatEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialChatEvent value)? initial,
     TResult Function(_RefreshChatEvent value)? refresh,
+    TResult Function(_ShareGeoChatEvent value)? shareGeo,
     TResult Function(_SendChatEvent value)? send,
     required TResult orElse(),
   }) =>
@@ -143,6 +158,8 @@ class _$_InitialChatEvent implements _InitialChatEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() refresh,
+    required TResult Function(String nickname, ChatGeolocationDto location)
+        shareGeo,
     required TResult Function(String nickname, String message) send,
   }) {
     return initial();
@@ -153,6 +170,7 @@ class _$_InitialChatEvent implements _InitialChatEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? refresh,
+    TResult Function(String nickname, ChatGeolocationDto location)? shareGeo,
     TResult Function(String nickname, String message)? send,
   }) {
     return initial?.call();
@@ -163,6 +181,7 @@ class _$_InitialChatEvent implements _InitialChatEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? refresh,
+    TResult Function(String nickname, ChatGeolocationDto location)? shareGeo,
     TResult Function(String nickname, String message)? send,
     required TResult orElse(),
   }) {
@@ -177,6 +196,7 @@ class _$_InitialChatEvent implements _InitialChatEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialChatEvent value) initial,
     required TResult Function(_RefreshChatEvent value) refresh,
+    required TResult Function(_ShareGeoChatEvent value) shareGeo,
     required TResult Function(_SendChatEvent value) send,
   }) {
     return initial(this);
@@ -187,6 +207,7 @@ class _$_InitialChatEvent implements _InitialChatEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitialChatEvent value)? initial,
     TResult Function(_RefreshChatEvent value)? refresh,
+    TResult Function(_ShareGeoChatEvent value)? shareGeo,
     TResult Function(_SendChatEvent value)? send,
   }) {
     return initial?.call(this);
@@ -197,6 +218,7 @@ class _$_InitialChatEvent implements _InitialChatEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialChatEvent value)? initial,
     TResult Function(_RefreshChatEvent value)? refresh,
+    TResult Function(_ShareGeoChatEvent value)? shareGeo,
     TResult Function(_SendChatEvent value)? send,
     required TResult orElse(),
   }) {
@@ -254,6 +276,8 @@ class _$_RefreshChatEvent implements _RefreshChatEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() refresh,
+    required TResult Function(String nickname, ChatGeolocationDto location)
+        shareGeo,
     required TResult Function(String nickname, String message) send,
   }) {
     return refresh();
@@ -264,6 +288,7 @@ class _$_RefreshChatEvent implements _RefreshChatEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? refresh,
+    TResult Function(String nickname, ChatGeolocationDto location)? shareGeo,
     TResult Function(String nickname, String message)? send,
   }) {
     return refresh?.call();
@@ -274,6 +299,7 @@ class _$_RefreshChatEvent implements _RefreshChatEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? refresh,
+    TResult Function(String nickname, ChatGeolocationDto location)? shareGeo,
     TResult Function(String nickname, String message)? send,
     required TResult orElse(),
   }) {
@@ -288,6 +314,7 @@ class _$_RefreshChatEvent implements _RefreshChatEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialChatEvent value) initial,
     required TResult Function(_RefreshChatEvent value) refresh,
+    required TResult Function(_ShareGeoChatEvent value) shareGeo,
     required TResult Function(_SendChatEvent value) send,
   }) {
     return refresh(this);
@@ -298,6 +325,7 @@ class _$_RefreshChatEvent implements _RefreshChatEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitialChatEvent value)? initial,
     TResult Function(_RefreshChatEvent value)? refresh,
+    TResult Function(_ShareGeoChatEvent value)? shareGeo,
     TResult Function(_SendChatEvent value)? send,
   }) {
     return refresh?.call(this);
@@ -308,6 +336,7 @@ class _$_RefreshChatEvent implements _RefreshChatEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialChatEvent value)? initial,
     TResult Function(_RefreshChatEvent value)? refresh,
+    TResult Function(_ShareGeoChatEvent value)? shareGeo,
     TResult Function(_SendChatEvent value)? send,
     required TResult orElse(),
   }) {
@@ -320,6 +349,166 @@ class _$_RefreshChatEvent implements _RefreshChatEvent {
 
 abstract class _RefreshChatEvent implements ChatEvent {
   const factory _RefreshChatEvent() = _$_RefreshChatEvent;
+}
+
+/// @nodoc
+abstract class _$ShareGeoChatEventCopyWith<$Res> {
+  factory _$ShareGeoChatEventCopyWith(
+          _ShareGeoChatEvent value, $Res Function(_ShareGeoChatEvent) then) =
+      __$ShareGeoChatEventCopyWithImpl<$Res>;
+  $Res call({String nickname, ChatGeolocationDto location});
+}
+
+/// @nodoc
+class __$ShareGeoChatEventCopyWithImpl<$Res>
+    extends _$ChatEventCopyWithImpl<$Res>
+    implements _$ShareGeoChatEventCopyWith<$Res> {
+  __$ShareGeoChatEventCopyWithImpl(
+      _ShareGeoChatEvent _value, $Res Function(_ShareGeoChatEvent) _then)
+      : super(_value, (v) => _then(v as _ShareGeoChatEvent));
+
+  @override
+  _ShareGeoChatEvent get _value => super._value as _ShareGeoChatEvent;
+
+  @override
+  $Res call({
+    Object? nickname = freezed,
+    Object? location = freezed,
+  }) {
+    return _then(_ShareGeoChatEvent(
+      nickname: nickname == freezed
+          ? _value.nickname
+          : nickname // ignore: cast_nullable_to_non_nullable
+              as String,
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as ChatGeolocationDto,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ShareGeoChatEvent implements _ShareGeoChatEvent {
+  const _$_ShareGeoChatEvent({required this.nickname, required this.location});
+
+  @override
+  final String nickname;
+  @override
+  final ChatGeolocationDto location;
+
+  @override
+  String toString() {
+    return 'ChatEvent.shareGeo(nickname: $nickname, location: $location)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ShareGeoChatEvent &&
+            const DeepCollectionEquality().equals(other.nickname, nickname) &&
+            const DeepCollectionEquality().equals(other.location, location));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(nickname),
+      const DeepCollectionEquality().hash(location));
+
+  @JsonKey(ignore: true)
+  @override
+  _$ShareGeoChatEventCopyWith<_ShareGeoChatEvent> get copyWith =>
+      __$ShareGeoChatEventCopyWithImpl<_ShareGeoChatEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() refresh,
+    required TResult Function(String nickname, ChatGeolocationDto location)
+        shareGeo,
+    required TResult Function(String nickname, String message) send,
+  }) {
+    return shareGeo(nickname, location);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? refresh,
+    TResult Function(String nickname, ChatGeolocationDto location)? shareGeo,
+    TResult Function(String nickname, String message)? send,
+  }) {
+    return shareGeo?.call(nickname, location);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? refresh,
+    TResult Function(String nickname, ChatGeolocationDto location)? shareGeo,
+    TResult Function(String nickname, String message)? send,
+    required TResult orElse(),
+  }) {
+    if (shareGeo != null) {
+      return shareGeo(nickname, location);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitialChatEvent value) initial,
+    required TResult Function(_RefreshChatEvent value) refresh,
+    required TResult Function(_ShareGeoChatEvent value) shareGeo,
+    required TResult Function(_SendChatEvent value) send,
+  }) {
+    return shareGeo(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_InitialChatEvent value)? initial,
+    TResult Function(_RefreshChatEvent value)? refresh,
+    TResult Function(_ShareGeoChatEvent value)? shareGeo,
+    TResult Function(_SendChatEvent value)? send,
+  }) {
+    return shareGeo?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitialChatEvent value)? initial,
+    TResult Function(_RefreshChatEvent value)? refresh,
+    TResult Function(_ShareGeoChatEvent value)? shareGeo,
+    TResult Function(_SendChatEvent value)? send,
+    required TResult orElse(),
+  }) {
+    if (shareGeo != null) {
+      return shareGeo(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ShareGeoChatEvent implements ChatEvent {
+  const factory _ShareGeoChatEvent(
+      {required String nickname,
+      required ChatGeolocationDto location}) = _$_ShareGeoChatEvent;
+
+  String get nickname;
+  ChatGeolocationDto get location;
+  @JsonKey(ignore: true)
+  _$ShareGeoChatEventCopyWith<_ShareGeoChatEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -398,6 +587,8 @@ class _$_SendChatEvent implements _SendChatEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() refresh,
+    required TResult Function(String nickname, ChatGeolocationDto location)
+        shareGeo,
     required TResult Function(String nickname, String message) send,
   }) {
     return send(nickname, message);
@@ -408,6 +599,7 @@ class _$_SendChatEvent implements _SendChatEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? refresh,
+    TResult Function(String nickname, ChatGeolocationDto location)? shareGeo,
     TResult Function(String nickname, String message)? send,
   }) {
     return send?.call(nickname, message);
@@ -418,6 +610,7 @@ class _$_SendChatEvent implements _SendChatEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? refresh,
+    TResult Function(String nickname, ChatGeolocationDto location)? shareGeo,
     TResult Function(String nickname, String message)? send,
     required TResult orElse(),
   }) {
@@ -432,6 +625,7 @@ class _$_SendChatEvent implements _SendChatEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitialChatEvent value) initial,
     required TResult Function(_RefreshChatEvent value) refresh,
+    required TResult Function(_ShareGeoChatEvent value) shareGeo,
     required TResult Function(_SendChatEvent value) send,
   }) {
     return send(this);
@@ -442,6 +636,7 @@ class _$_SendChatEvent implements _SendChatEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitialChatEvent value)? initial,
     TResult Function(_RefreshChatEvent value)? refresh,
+    TResult Function(_ShareGeoChatEvent value)? shareGeo,
     TResult Function(_SendChatEvent value)? send,
   }) {
     return send?.call(this);
@@ -452,6 +647,7 @@ class _$_SendChatEvent implements _SendChatEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitialChatEvent value)? initial,
     TResult Function(_RefreshChatEvent value)? refresh,
+    TResult Function(_ShareGeoChatEvent value)? shareGeo,
     TResult Function(_SendChatEvent value)? send,
     required TResult orElse(),
   }) {

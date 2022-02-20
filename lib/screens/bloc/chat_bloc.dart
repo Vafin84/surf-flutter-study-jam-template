@@ -26,5 +26,12 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
       emit(const ChatState.loading());
       emit(ChatState.data(messages: messages));
     });
+
+    on<_ShareGeoChatEvent>((event, emit) async {
+      await chatRepository.sendGeolocationMessage(nickname: event.nickname, location: event.location);
+      final messages = await chatRepository.messages;
+      emit(const ChatState.loading());
+      emit(ChatState.data(messages: messages));
+    });
   }
 }
