@@ -70,9 +70,9 @@ class _ChatScreenState extends State<ChatScreen> {
                 children: [
                   Expanded(
                       child: ListView.builder(
-                          itemCount: data.messages?.length,
+                          itemCount: data.messages.length,
                           itemBuilder: ((context, index) => ChatTile(
-                                message: data.messages![index],
+                                message: data.messages[index],
                               )))),
                   Material(
                     elevation: 20,
