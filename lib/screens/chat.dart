@@ -21,11 +21,13 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+  final TextEditingController _nicknameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: TextField(
+          controller: _nicknameController,
           decoration: InputDecoration(
             hintText: "Введите ник",
             hintStyle: TextStyle(color: Colors.deepPurple[100]),
@@ -39,7 +41,7 @@ class _ChatScreenState extends State<ChatScreen> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () => context.read<ChatBloc>().add(const ChatEvent.refresh()),
             icon: const Icon(Icons.refresh, color: Colors.white),
           ),
         ],
