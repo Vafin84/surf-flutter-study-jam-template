@@ -93,7 +93,10 @@ class _ChatScreenState extends State<ChatScreen> {
                           ),
                         ),
                         leading: IconButton(
-                          icon: const Icon(Icons.share_location_outlined),
+                          icon: const Icon(
+                            Icons.share_location_outlined,
+                            color: Colors.deepPurple,
+                          ),
                           onPressed: () {
                             showDialog(
                                 context: context,
